@@ -9,4 +9,11 @@ describe('Contacts') do
       expect(test_contact.first_name()).to(eq("Susan"))
     end
   end
+
+  describe("#last_name") do
+    it("returns the last name") do
+      test_contact = Contacts.new({:first_name => "Susan", :last_name => "Jones", :title => "Analyst", :company => "Apple"})
+      expect(test_contact.last_name()).to(eq("Jones"))
+    end
+  end
 end
