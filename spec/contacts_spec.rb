@@ -26,14 +26,19 @@ describe('Contacts') do
   describe('#email') do
     it("returns email when its the only email") do
       test_contact = Contacts.new({:first_name => "Michael",:address =>["107 Cherry Lane", "Wonderland", "Colorado", 11111, "home"], :last_name => "Summers", :title => "student", :company => "Epicodus", :phone => [703, 5039874, "home" ], :email =>["www.google.com", "home"]})
-
+      #:email => Email.all()
       expect(test_contact.email()).to(eq(["www.google.com", "home"]))
     end
 
-    # it("returns email when multiple email address") do
-    #   test_contact = Contacts.new({:first_name => "Michael",:address =>["107 Cherry Lane", "Wonderland", "Colorado", 11111, "home"], :last_name => "Summers", :title => "student", :company => "Epicodus", :phone => [703, 5039874, "home" ], :email =>["www.google.com", "home"], :email => ["www.facebook.com", "work"]})
-    #   expect(test_contact.email()).to(eq([["www.google.com", "home"],["www.facebook.com", "work"]]))
-    # end
+    it("returns email when multiple emails exist") do
+      test_email_1 = Email.new("www.google.com", "Work")
+      test_email_2 = Email.new("www.apple.com", "work")
+      test_email_1.save()
+      test_email_2.save()
+      test_contact  = Contacts.new({:first_name => "Michael",:address =>["107 Cherry Lane", "Wonderland", "Colorado", 11111, "home"], :last_name => "Summers", :title => "student", :company => "Epicodus", :phone => [703, 5039874, "home" ], :email => Email.all()})
+      expect(test_contact.email()).to(eq([test_email_1, test_email_2]))
+    end
+
 
   end
 
@@ -41,6 +46,16 @@ describe('Contacts') do
     it("returns phone number") do
       test_contact = Contacts.new({:first_name => "Michael", :last_name => "Summers",:address =>["107 Cherry Lane", "Wonderland", "Colorado", 11111, "home"], :title => "student", :company => "Epicodus", :phone => [703, 5039874, "home" ], :email =>["www.google.com", "home"]})
       expect(test_contact.phone()).to(eq([703, 5039874, "home"]))
+    end
+
+    it("returns multiple phone numbers") do
+      phone_number_1 = Phone.new(702, 3039874, "home")
+      phone_number_2 = Phone.new(793, 6039874, "home")
+      phone_number_1.save()
+      phone_number_2.save()
+      test_contact = Contacts.new({:first_name => "Michael", :last_name => "Summers",:address =>["107 Cherry Lane", "Wonderland", "Colorado", 11111, "home"], :title => "student", :company => "Epicodus", :phone => Phone.all(), :email =>["www.google.com", "home"]})
+      expect(test_contact.phone()).to(eq([phone_number_1, phone_number_2]))
+
     end
   end
 
