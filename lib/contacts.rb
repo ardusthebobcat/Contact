@@ -1,31 +1,24 @@
 class Contacts
-  #initialize
-  attr_reader(:first_name, :last_name, :title, :company, :emails, :phones, :addresses)
+  @@contacts =[]
+  attr_reader(:first_name, :last_name, :title, :company, :email, :phones, :addresses)
 
+  #initialize
   define_method(:initialize) do |attributes|
     @first_name = attributes.fetch(:first_name)
     @last_name = attributes.fetch(:last_name)
     @job_title = attributes.fetch(:title)
     @company = attributes.fetch(:company)
-    #email addresses
+    #@email = []
+    @email = attributes.fetch(:email).push
     #phone
     #mail
   end
 
   #Singleton methods, mainly #find, #add, #delete
 
-  #fetch methods for all 6 properties
-  define_method(:first_name) do
-    return @first_name
-  end
-
 end
 
-class Email
-  #initialize
-    #address
-    #type (home, work, other?)
-end
+
 
 class Mail
   #initialize
