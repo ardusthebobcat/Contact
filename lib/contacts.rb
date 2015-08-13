@@ -1,6 +1,6 @@
 class Contacts
   @@contacts =[]
-  attr_reader(:first_name, :last_name, :title, :company, :email, :phones, :addresses)
+  attr_reader(:first_name, :last_name, :title, :company, :email, :phone, :addresses)
 
   #initialize
   define_method(:initialize) do |attributes|
@@ -10,15 +10,12 @@ class Contacts
     @company = attributes.fetch(:company)
     #@email = []
     @email = attributes.fetch(:email).push
-    #phone
+    @phone = attributes.fetch(:phone)
     #mail
   end
 
   #Singleton methods, mainly #find, #add, #delete
-
 end
-
-
 
 class Mail
   #initialize
@@ -27,11 +24,4 @@ class Mail
     #state
     #zip
     #type (home, work, other)
-end
-
-class Phone
-  #initialize
-    #area code
-    #phone number
-    #type
 end
