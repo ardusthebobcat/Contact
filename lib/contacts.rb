@@ -8,10 +8,9 @@ class Contacts
     @last_name = attributes.fetch(:last_name)
     @job_title = attributes.fetch(:title)
     @company = attributes.fetch(:company)
-    #@email = []
-    @email = attributes.fetch(:email).push
+    @email = attributes.fetch(:email)
     @phone = attributes.fetch(:phone)
-    @mail = attributes.fetch(:address)
+    @address = attributes.fetch(:address)
   end
 
   #Singleton methods, mainly #find, #add, #delete
