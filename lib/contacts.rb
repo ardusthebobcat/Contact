@@ -14,4 +14,11 @@ class Contacts
   end
 
   #Singleton methods, mainly #find, #add, #delete
+  define_singleton_method(:all) do
+    @@contacts
+  end
+
+  define_singleton_method(:clear) do
+    @@contacts = []
+  end
 end
