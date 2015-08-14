@@ -1,0 +1,23 @@
+<h1>Add a phone number </h1>
+
+<form action='/add_phone' method = "post">
+  <!-- add input -->
+  <label for='area_code'> Area code </label>
+  <input type="number" name="area_code">
+
+  </br>
+
+  <label for='phone_number'> Phone number (NO HYPHEN, please) </label>
+  <input type="number" name="phone_number">
+
+  </br>
+
+  <label for='phone_type'> Type </label>
+  <input type="radio" name= "phone_type" value = "Home" checked> Home
+  <input type="radio" name= "phone_type" value = "Work"> Work
+  <input type="radio" name= "phone_type" value = "Other"> Other
+
+  </br>
+
+  <button type="submit">Add Phone Number</button>
+</form>

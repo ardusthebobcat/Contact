@@ -12,6 +12,19 @@
     <h1>Contacts Home Page</h1>
     <h2> Keep track of your contacts! </h2>
     <a href="/index"> HOME PAGE </a>
+    <a href="/new_contact_page"> Add a new contact </a>
     <a href="/phone_page"> Add new Phone Number </a>
+
+  <ul><% if (@contacts != nil) %>
+        <% @contacts.each() do |contact| %>
+          <li><%= contact.first_name() %> <%= contact.last_name() %></li>
+            <ul>
+              <li>contact.phone </li>
+              <li>contact.email </li>
+            </ul>
+        <% end %>
+      <% end %>
+  </ul>
+
   </body>
 </html>
